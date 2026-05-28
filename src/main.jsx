@@ -1,77 +1,37 @@
 import React, { useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { siteData } from "./siteData.js";
 import "./styles.css";
 
-const projects = [
-  {
-    name: "ForgeFit Coaching Website",
-    type: "Fitness Website Demo",
-    description:
-      "A premium dark website for fitness coaches with programs, booking section, and mobile-first design.",
-  },
-  {
-    name: "Exam Progress Tracker",
-    type: "Student Web App",
-    description:
-      "A clean student dashboard for tracking marks, weak lessons, and subject-wise improvement.",
-  },
-  {
-    name: "AG Fitness Concept",
-    type: "Local Gym Website Preview",
-    description:
-      "A professional gym website concept with packages, location, WhatsApp contact, and gallery sections.",
-  },
-];
-
-const services = [
-  {
-    name: "Landing Page",
-    price: "From $20",
-    features: ["Mobile-friendly", "Contact button", "Social links", "Fast delivery"],
-  },
-  {
-    name: "Business Website",
-    price: "From $50",
-    features: ["Home + services", "Gallery", "WhatsApp/contact", "Basic SEO structure"],
-  },
-  {
-    name: "Simple Web App",
-    price: "From $80",
-    features: ["Dashboard UI", "Simple data", "Responsive layout", "GitHub Pages deploy"],
-  },
-];
-
-const businessTypes = [
-  "Gym / fitness coach",
-  "Tutor / class",
-  "Small business",
-  "Other",
-];
-
-const contactLinks = [
-  { label: "TikTok", value: "@quietbuild.studio", href: "https://www.tiktok.com/@quietbuild.studio" },
-  { label: "Facebook", value: "PASTE_FACEBOOK_LINK", href: "PASTE_FACEBOOK_LINK" },
-  { label: "Instagram", value: "PASTE_INSTAGRAM_LINK", href: "PASTE_INSTAGRAM_LINK" },
-  { label: "WhatsApp", value: "94XXXXXXXXX", href: "https://wa.me/94XXXXXXXXX" },
-];
-
 function App() {
+  const {
+    brand,
+    nav,
+    hero,
+    work,
+    projects,
+    servicesSection,
+    services,
+    contact,
+    socialLinks,
+  } = siteData;
+
   const [form, setForm] = useState({
     businessName: "",
-    businessType: businessTypes[0],
+    businessType: contact.businessTypes[0],
     message: "",
   });
 
   const requestMessage = useMemo(() => {
-    const businessName = form.businessName.trim() || "My business";
-    const message = form.message.trim() || "I want a clean website for my business.";
+    const businessName = form.businessName.trim() || contact.defaultBusinessName;
+    const message = form.message.trim() || contact.defaultMessage;
 
-    return `Hi QuietBuild Studio, I want to request a website.
+    return `${contact.messageIntro}
 
-Business name: ${businessName}
-Business type: ${form.businessType}
-Message: ${message}`;
-  }, [form]);
+${contact.requestLabels.businessName}: ${businessName}
+${contact.requestLabels.businessType}: ${form.businessType}
+${contact.requestLabels.message}: ${message}`;
+  }, [contact, form]);
 
   const updateForm = (event) => {
     const { name, value } = event.target;
@@ -80,45 +40,43 @@ Message: ${message}`;
 
   const openWhatsApp = () => {
     window.open(
-      `https://wa.me/94XXXXXXXXX?text=${encodeURIComponent(requestMessage)}`,
+      `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(requestMessage)}`,
       "_blank",
       "noopener,noreferrer",
     );
   };
 
   const openEmail = () => {
-    window.location.href = `mailto:quietbuildstudio@example.com?subject=${encodeURIComponent(
-      "Website request",
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
+      contact.emailSubject,
     )}&body=${encodeURIComponent(requestMessage)}`;
   };
 
   return (
     <main>
       <header className="site-header">
-        <a className="logo" href="#home" aria-label="QuietBuild Studio home">
-          <span className="logo-mark">Q</span>
-          <span>QuietBuild Studio</span>
+        <a className="logo" href="#home" aria-label={`${brand.name} home`}>
+          <span className="logo-mark">{brand.logoLetter}</span>
+          <span>{brand.name}</span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
+          {nav.map((item) => (
+            <a href={`#${item.toLowerCase()}`} key={item}>
+              {item}
+            </a>
+          ))}
         </nav>
-        <a className="header-cta" href="#contact">DM "SITE"</a>
+        <a className="header-cta" href="#contact">{brand.cta}</a>
       </header>
 
       <section className="hero section-shell" id="home">
         <div className="hero-copy">
-          <p className="eyebrow">Clean websites. Real impact.</p>
-          <h1>Clean websites for gyms, coaches, tutors, and small businesses.</h1>
-          <p className="hero-text">
-            QuietBuild Studio creates mobile-friendly websites that make your business look professional
-            and help customers contact you faster.
-          </p>
+          <p className="eyebrow">{brand.tagline}</p>
+          <h1>{hero.heading}</h1>
+          <p className="hero-text">{hero.text}</p>
           <div className="hero-actions">
-            <a className="primary-btn" href="#work">View Work</a>
-            <a className="secondary-btn" href="#contact">Request a Website</a>
+            <a className="primary-btn" href="#work">{hero.primaryButton}</a>
+            <a className="secondary-btn" href="#contact">{hero.secondaryButton}</a>
           </div>
         </div>
 
@@ -130,8 +88,8 @@ Message: ${message}`;
               <span></span>
             </div>
             <div className="mock-hero">
-              <span>Gym Website</span>
-              <strong>Train harder. Book faster.</strong>
+              <span>{hero.mockup.mainLabel}</span>
+              <strong>{hero.mockup.mainTitle}</strong>
             </div>
             <div className="mock-grid">
               <div></div>
@@ -140,7 +98,7 @@ Message: ${message}`;
             </div>
           </div>
           <div className="mock-card mock-card-side">
-            <span>Coach Website</span>
+            <span>{hero.mockup.sideLabel}</span>
             <div className="mini-bars">
               <i></i>
               <i></i>
@@ -148,7 +106,7 @@ Message: ${message}`;
             </div>
           </div>
           <div className="mock-card mock-card-phone">
-            <span>Mobile First</span>
+            <span>{hero.mockup.phoneLabel}</span>
             <b></b>
             <i></i>
           </div>
@@ -157,14 +115,14 @@ Message: ${message}`;
 
       <section className="section-shell" id="work">
         <div className="section-heading">
-          <p className="eyebrow">Selected concepts</p>
-          <h2>Recent website and app concepts</h2>
+          <p className="eyebrow">{work.eyebrow}</p>
+          <h2>{work.title}</h2>
         </div>
         <div className="card-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article className="project-card glass-card" key={project.name}>
               <div className="project-preview">
-                <div className={`preview-screen preview-${index + 1}`}>
+                <div className={`preview-screen ${project.imageClass}`}>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -180,8 +138,8 @@ Message: ${message}`;
 
       <section className="section-shell" id="services">
         <div className="section-heading">
-          <p className="eyebrow">Website packages</p>
-          <h2>Small builds with a clean finish</h2>
+          <p className="eyebrow">{servicesSection.eyebrow}</p>
+          <h2>{servicesSection.title}</h2>
         </div>
         <div className="pricing-grid">
           {services.map((service) => (
@@ -195,7 +153,7 @@ Message: ${message}`;
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <a href="#contact">Start request</a>
+              <a href="#contact">{servicesSection.button}</a>
             </article>
           ))}
         </div>
@@ -203,61 +161,61 @@ Message: ${message}`;
 
       <section className="section-shell contact-section" id="contact">
         <div className="section-heading">
-          <p className="eyebrow">Project request</p>
-          <h2>Want a clean website?</h2>
+          <p className="eyebrow">{contact.eyebrow}</p>
+          <h2>{contact.title}</h2>
         </div>
         <div className="contact-layout">
           <aside className="contact-panel">
             <div>
-              <h3>Let your next website feel clear, fast, and ready for real customers.</h3>
-              <p>Send the word "SITE" or use the request form with your business details.</p>
+              <h3>{contact.heading}</h3>
+              <p>{contact.text}</p>
             </div>
             <div className="social-stack">
-              {contactLinks.map((link) => (
+              {socialLinks.map((link) => (
                 <a href={link.href} key={link.label} target="_blank" rel="noreferrer">
                   <span>{link.label}</span>
                   <b>{link.value}</b>
                 </a>
               ))}
-              <a href="mailto:quietbuildstudio@example.com">
-                <span>Email</span>
-                <b>quietbuildstudio@example.com</b>
+              <a href={`mailto:${contact.email}`}>
+                <span>{contact.emailLabel}</span>
+                <b>{contact.email}</b>
               </a>
             </div>
           </aside>
 
           <form className="request-form" onSubmit={(event) => event.preventDefault()}>
             <label>
-              Business name
+              {contact.form.businessNameLabel}
               <input
                 type="text"
                 name="businessName"
                 value={form.businessName}
                 onChange={updateForm}
-                placeholder="Your business name"
+                placeholder={contact.form.businessNamePlaceholder}
               />
             </label>
             <label>
-              Business type
+              {contact.form.businessTypeLabel}
               <select name="businessType" value={form.businessType} onChange={updateForm}>
-                {businessTypes.map((type) => (
+                {contact.businessTypes.map((type) => (
                   <option key={type}>{type}</option>
                 ))}
               </select>
             </label>
             <label>
-              Message
+              {contact.form.messageLabel}
               <textarea
                 name="message"
                 value={form.message}
                 onChange={updateForm}
-                placeholder="Tell me what you want built..."
+                placeholder={contact.form.messagePlaceholder}
                 rows="6"
               />
             </label>
             <div className="form-actions">
-              <button type="button" onClick={openWhatsApp}>Send on WhatsApp</button>
-              <button type="button" onClick={openEmail}>Send by Email</button>
+              <button type="button" onClick={openWhatsApp}>{contact.form.whatsappButton}</button>
+              <button type="button" onClick={openEmail}>{contact.form.emailButton}</button>
             </div>
           </form>
         </div>
