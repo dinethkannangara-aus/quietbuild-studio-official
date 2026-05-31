@@ -123,6 +123,13 @@ ${contact.requestLabels.message}: ${message}`;
             <article className="project-card glass-card" key={project.name}>
               <div className="project-preview">
                 <div className={`preview-screen ${project.imageClass}`}>
+                    <img
+                    src={project.image}
+                    alt={`${project.name} preview`}
+                    onError={(event) => {
+                      event.currentTarget.hidden = true;
+                    }}
+                  />
                   <span></span>
                   <span></span>
                   <span></span>
