@@ -1,6 +1,7 @@
 const base = import.meta.env.BASE_URL;
 export const siteData = {
   brand: {
+ logo: `${import.meta.env.BASE_URL}images/quietbuild-logo.png`,    
     name: "QuietBuild Studio",
     logoLetter: "Q",
     tagline: "Clean websites. Real impact.",
