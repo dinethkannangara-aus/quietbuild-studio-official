@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const siteData = {
   brand: {
     name: "QuietBuild Studio",
@@ -29,6 +31,7 @@ export const siteData = {
       type: "Fitness Website Demo",
       description:
         "A premium dark website for fitness coaches with programs, booking section, and mobile-first design.",
+      image: `${base}images/forgefit-preview.png`,
       imageClass: "preview-1",
     },
     {
@@ -36,6 +39,7 @@ export const siteData = {
       type: "Student Web App",
       description:
         "A clean student dashboard for tracking marks, weak lessons, and subject-wise improvement.",
+      image: `${base}images/exam-tracker-preview.png`,
       imageClass: "preview-2",
     },
     {
@@ -43,6 +47,7 @@ export const siteData = {
       type: "Local Gym Website Preview",
       description:
         "A professional gym website concept with packages, location, WhatsApp contact, and gallery sections.",
+      image: `${base}images/ag-fitness-preview.png`,
       imageClass: "preview-3",
     },
   ],
