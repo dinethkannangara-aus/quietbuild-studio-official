@@ -56,7 +56,11 @@ ${contact.requestLabels.message}: ${message}`;
     <main>
       <header className="site-header">
         <a className="logo" href="#home" aria-label={`${brand.name} home`}>
-          <span className="logo-mark">{brand.logoLetter}</span>
+             <img
+            src={siteData.logo}
+            alt="QuietBuild Studio logo"
+            className="brand-logo"
+          />
           <span>{brand.name}</span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">
