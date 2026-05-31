@@ -1,5 +1,4 @@
 const base = import.meta.env.BASE_URL;
-
 export const siteData = {
   brand: {
     name: "QuietBuild Studio",
@@ -25,29 +24,29 @@ export const siteData = {
     eyebrow: "Selected concepts",
     title: "Recent website and app concepts",
   },
-  projects: [
-    {
-      name: "ForgeFit Coaching Website",
-      type: "Fitness Website Demo",
-      description:
-        "A premium dark website for fitness coaches with programs, booking section, and mobile-first design.",
-      image: `${base}images/forgefit-preview.png`,
-    },
-    {
-      name: "Exam Progress Tracker",
-      type: "Student Web App",
-      description:
-        "A clean student dashboard for tracking marks, weak lessons, and subject-wise improvement.",
-      image: `${base}images/exam-tracker-preview.png`,
-    },
-    {
-      name: "KEISER Fitness Concept",
-      type: "Local Gym Website Preview",
-      description:
-        "A professional gym website concept with packages, location, WhatsApp contact, and gallery sections.",
-      image: `${base}images/ag-fitness-preview.png`,
-    },
-  ],
+projects: [
+  {
+    name: "ForgeFit Coaching Website",
+    type: "Fitness Website Demo",
+    description:
+      "A premium dark website for fitness coaches with programs, booking section, and mobile-first design.",
+    image: `${base}images/forgefit-preview.jpg`,
+  },
+  {
+    name: "Exam Progress Tracker",
+    type: "Student Web App",
+    description:
+      "A clean student dashboard for tracking marks, weak lessons, and subject-wise improvement.",
+    image: `${base}images/exam-tracker-preview.jpg`,
+  },
+  {
+    name: "KEISER Fitness Concept",
+    type: "Local Gym Website Preview",
+    description:
+      "A professional gym website concept with packages, location, WhatsApp contact, and gallery sections.",
+    image: `${base}images/ag-fitness-preview.jpg`,
+  },
+],
   servicesSection: {
     eyebrow: "Website packages",
     title: "Small builds with a clean finish",
