@@ -280,8 +280,7 @@ h3 {
   margin-bottom: 1rem;
 }
 
-.mock-topbar span,
-.preview-screen span:first-child {
+.mock-topbar span {
   width: 0.68rem;
   height: 0.68rem;
   border-radius: 999px;
@@ -396,64 +395,27 @@ h3 {
   padding: 1rem;
 }
 
-.project-preview {
+.project-image-wrap {
+  width: 100%;
+  height: 230px;
   overflow: hidden;
-  padding: 0.65rem;
   margin-bottom: 1.2rem;
-  border-radius: 1.35rem;
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(0);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background: #131a38;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
 }
 
-.preview-screen {
-  position: relative;
-  display: grid;
-  align-content: end;
-  gap: 0.7rem;
-  height: 230px;
-  overflow: hidden;
-  padding: 1rem;
-  border-radius: 1.1rem;
-  background: linear-gradient(135deg, #1f1851, #071b2c);
-}
-
-.preview-screen img {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+.project-image {
   width: 100%;
-  height: 230px;
-  border-radius: 22px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 240ms ease;
-}
-
-.project-card:hover .preview-screen img {
-  transform: scale(1.045);
-}
-
-.preview-2 {
-  background: linear-gradient(135deg, #10264d, #2b174b);
-}
-
-.preview-3 {
-  background: linear-gradient(135deg, #221344, #0d3448);
-}
-
-.preview-screen span {
   display: block;
-  height: 1rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.22);
+  transition: transform 0.35s ease;
 }
 
-.preview-screen span:nth-child(2) {
-  width: 68%;
-}
-
-.preview-screen span:nth-child(3) {
-  width: 42%;
+.project-card:hover .project-image {
+  transform: scale(1.04);
 }
 
 .project-card p,
