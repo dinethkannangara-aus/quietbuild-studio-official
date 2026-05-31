@@ -121,19 +121,13 @@ ${contact.requestLabels.message}: ${message}`;
         <div className="card-grid">
           {projects.map((project) => (
             <article className="project-card glass-card" key={project.name}>
-              <div className="project-preview">
-                <div className={`preview-screen ${project.imageClass}`}>
-                    <img
-                    src={project.image}
-                    alt={`${project.name} preview`}
-                    onError={(event) => {
-                      event.currentTarget.hidden = true;
-                    }}
-                  />
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+              <div className="project-image-wrap">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="project-image"
+                  loading="lazy"
+                />
               </div>
               <p>{project.type}</p>
               <h3>{project.name}</h3>
