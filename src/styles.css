@@ -397,6 +397,7 @@ h3 {
 }
 
 .project-preview {
+  overflow: hidden;
   padding: 0.65rem;
   margin-bottom: 1.2rem;
   border-radius: 1.35rem;
@@ -406,13 +407,30 @@ h3 {
 }
 
 .preview-screen {
+  position: relative;
   display: grid;
   align-content: end;
   gap: 0.7rem;
-  min-height: 14rem;
+  height: 230px;
+  overflow: hidden;
   padding: 1rem;
   border-radius: 1.1rem;
   background: linear-gradient(135deg, #1f1851, #071b2c);
+}
+
+.preview-screen img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 230px;
+  border-radius: 22px;
+  object-fit: cover;
+  transition: transform 240ms ease;
+}
+
+.project-card:hover .preview-screen img {
+  transform: scale(1.045);
 }
 
 .preview-2 {
