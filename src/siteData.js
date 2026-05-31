@@ -115,9 +115,5 @@ export const siteData = {
       label: "WhatsApp",
       href: "https://wa.me/94719952251",
     },
-    {
-      label: "email",
-      href: "dinethkannangara03@gmail.com",
-    },
   ],
 };
