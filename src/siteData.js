@@ -86,7 +86,7 @@ export const siteData = {
     emailSubject: "Website request",
     emailLabel: "Email",
     whatsappNumber: "94719952251",
-    email: "dinethkannangara03@gmail.com",
+    
     businessTypes: ["Gym / fitness coach", "Tutor / class", "Small business", "Other"],
     form: {
       businessNameLabel: "Business name",
@@ -114,6 +114,10 @@ export const siteData = {
     {
       label: "WhatsApp",
       href: "https://wa.me/94719952251",
+    },
+    {
+      label: "email",
+      href: "dinethkannangara03@gmail.com",
     },
   ],
 };
