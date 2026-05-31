@@ -98,6 +98,14 @@ textarea {
   box-shadow: 0 12px 32px rgba(101, 216, 255, 0.25);
 }
 
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
 .nav-links {
   grid-column: 1 / -1;
   display: grid;
