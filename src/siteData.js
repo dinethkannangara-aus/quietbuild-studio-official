@@ -32,7 +32,6 @@ export const siteData = {
       description:
         "A premium dark website for fitness coaches with programs, booking section, and mobile-first design.",
       image: `${base}images/forgefit-preview.png`,
-      imageClass: "preview-1",
     },
     {
       name: "Exam Progress Tracker",
@@ -40,7 +39,6 @@ export const siteData = {
       description:
         "A clean student dashboard for tracking marks, weak lessons, and subject-wise improvement.",
       image: `${base}images/exam-tracker-preview.png`,
-      imageClass: "preview-2",
     },
     {
       name: "KEISER Fitness Concept",
@@ -48,7 +46,6 @@ export const siteData = {
       description:
         "A professional gym website concept with packages, location, WhatsApp contact, and gallery sections.",
       image: `${base}images/ag-fitness-preview.png`,
-      imageClass: "preview-3",
     },
   ],
   servicesSection: {
