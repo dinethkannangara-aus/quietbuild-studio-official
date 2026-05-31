@@ -104,6 +104,7 @@ textarea {
   object-fit: cover;
   border-radius: 14px;
   display: block;
+  flex-shrink: 0;
 }
 
 .nav-links {
