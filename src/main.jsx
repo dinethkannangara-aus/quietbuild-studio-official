@@ -57,8 +57,8 @@ ${contact.requestLabels.message}: ${message}`;
       <header className="site-header">
         <a className="logo" href="#home" aria-label={`${brand.name} home`}>
              <img
-            src={siteData.logo}
-            alt="QuietBuild Studio logo"
+            src={`${import.meta.env.BASE_URL}images/quietbuild-logo.png`}
+            alt=""
             className="brand-logo"
           />
           <span>{brand.name}</span>
