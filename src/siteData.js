@@ -43,7 +43,7 @@ export const siteData = {
       imageClass: "preview-2",
     },
     {
-      name: "AG Fitness Concept",
+      name: "KEISER Fitness Concept",
       type: "Local Gym Website Preview",
       description:
         "A professional gym website concept with packages, location, WhatsApp contact, and gallery sections.",
@@ -88,8 +88,8 @@ export const siteData = {
     },
     emailSubject: "Website request",
     emailLabel: "Email",
-    whatsappNumber: "94XXXXXXXXX",
-    email: "quietbuildstudio@example.com",
+    whatsappNumber: "94719952251",
+    email: "dinethkannangara03@gmail.com",
     businessTypes: ["Gym / fitness coach", "Tutor / class", "Small business", "Other"],
     form: {
       businessNameLabel: "Business name",
@@ -104,23 +104,19 @@ export const siteData = {
   socialLinks: [
     {
       label: "TikTok",
-      value: "@quietbuild.studio",
       href: "https://www.tiktok.com/@quietbuild.studio",
     },
     {
       label: "Facebook",
-      value: "PASTE_FACEBOOK_LINK",
-      href: "PASTE_FACEBOOK_LINK",
+      href: "https://www.facebook.com/profile.php?id=61589256973359",
     },
     {
       label: "Instagram",
-      value: "PASTE_INSTAGRAM_LINK",
-      href: "PASTE_INSTAGRAM_LINK",
+      href: "https://www.instagram.com/quietbuild.studio?igsh=MW4zdGZkZ3VjeTdleA%3D%3D&utm_source=qr",
     },
     {
       label: "WhatsApp",
-      value: "94XXXXXXXXX",
-      href: "https://wa.me/94XXXXXXXXX",
+      href: "https://wa.me/94719952251",
     },
   ],
 };
